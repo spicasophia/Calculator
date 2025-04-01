@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Calculator</title>
+    <link href="styles.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+  <div class="header">
+    <p>Sophia's Calculator</p>
+
+    <div id="nav-toggle">
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+</div>
+  
+<form class="calculator" name="calc">
+  <input class="value" type="text" name="txt" readonly="">
+  <span class="num clear" onclick="clearDisplay()">C</span>
+  <span class="num" onclick="appendValue('/')">/</span>
+  <span class="num" onclick="appendValue('*')">*</span>
+  <span class="num" onclick="appendValue('7')">7</span>
+  <span class="num" onclick="appendValue('8')">8</span>
+  <span class="num" onclick="appendValue('9')">9</span>
+  <span class="num" onclick="appendValue('-')">-</span>
+  <span class="num" onclick="appendValue('4')">4</span>
+  <span class="num" onclick="appendValue('5')">5</span>
+  <span class="num" onclick="appendValue('6')">6</span>
+  <span class="num plus" onclick="appendValue('+')">+</span>
+  <span class="num" onclick="appendValue('3')">3</span>
+  <span class="num" onclick="appendValue('2')">2</span>
+  <span class="num" onclick="appendValue('1')">1</span>
+  <span class="num" onclick="appendValue('0')">0</span>
+  <span class="num" onclick="appendValue('00')">00</span>
+  <span class="num" onclick="appendValue('.')">.</span>
+  <span class="num equal" onclick="calculateResult()">=</span>
+</form>
+
+<script>
+  function appendValue(value) {
+    document.calc.txt.value += value;
+  }
+
+  function clearDisplay() {
+    document.calc.txt.value = '';
+  }
+
+  function calculateResult() {
+    try {
+      document.calc.txt.value = eval(document.calc.txt.value);
+    } catch (e) {
+      document.calc.txt.value = 'Error';
+    }
+  }
+</script>
+</body>
+</html>
